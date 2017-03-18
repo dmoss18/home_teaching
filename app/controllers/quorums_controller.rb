@@ -1,0 +1,2 @@
+class QuorumsController < ApplicationController
+end

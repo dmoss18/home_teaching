@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  database: <%= ENV['DATABASE_NAME'] %>
+  host: <%= ENV['DATABASE_IP'] %>
+  username: <%= ENV['DATABASE_USER_NAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  pool: 10
+
+development:
+  database: home_teaching_development
+  <<: *default
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  database: home_teaching_test
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default

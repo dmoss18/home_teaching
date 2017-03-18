@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quorum_member: one
+  household: one
+  assignment_type: MyString
+
+two:
+  quorum_member: two
+  household: two
+  assignment_type: MyString

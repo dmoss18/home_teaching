@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  quorum_type: MyString
+  ward: one
+
+two:
+  name: MyString
+  quorum_type: MyString
+  ward: two
