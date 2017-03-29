@@ -12,4 +12,8 @@ class UserTokenController < Knock::AuthTokenController
     def entity_class
       User
     end
+
+    def auth_params
+      params.permit :email, :password
+    end
 end
