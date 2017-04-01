@@ -7,4 +7,6 @@ class User < ApplicationRecord
   #        :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessor :jwt
+
+  has_one :quorum_member
 end
