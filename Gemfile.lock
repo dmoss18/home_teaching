@@ -61,6 +61,9 @@ GEM
     i18n (0.8.1)
     jsonapi-renderer (0.1.2)
     jwt (1.5.6)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     knock (2.1.1)
       bcrypt (~> 3.1)
       jwt (~> 1.5)
@@ -147,6 +150,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   bcrypt (~> 3.1.7)
   dotenv-rails
+  kaminari
   knock
   listen (~> 3.0.5)
   pg (~> 0.18)
@@ -157,6 +161,9 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
+
+RUBY VERSION
+   ruby 2.2.3p173
 
 BUNDLED WITH
    1.13.7

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315130228) do
+ActiveRecord::Schema.define(version: 20170409183819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,11 +45,13 @@ ActiveRecord::Schema.define(version: 20170315130228) do
     t.string   "last_name"
     t.integer  "household_id"
     t.integer  "quorum_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "role",         default: "member"
     t.index ["household_id"], name: "index_quorum_members_on_household_id", using: :btree
     t.index ["quorum_id"], name: "index_quorum_members_on_quorum_id", using: :btree
-    t.index ["user_id"], name: "index_quorum_members_on_user_id", using: :btree
+    t.index ["role"], name: "index_quorum_members_on_role", using: :btree
+    t.index ["user_id"], name: "index_quorum_members_on_user_id", unique: true, using: :btree
   end
 
   create_table "quorums", force: :cascade do |t|
@@ -60,6 +62,16 @@ ActiveRecord::Schema.define(version: 20170315130228) do
     t.datetime "updated_at",  null: false
     t.index ["name", "ward_id"], name: "index_quorums_on_name_and_ward_id", unique: true, using: :btree
     t.index ["ward_id"], name: "index_quorums_on_ward_id", using: :btree
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer  "assignment_id"
+    t.text     "message"
+    t.string   "status"
+    t.string   "household_name"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["assignment_id"], name: "index_reports_on_assignment_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

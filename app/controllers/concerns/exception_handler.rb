@@ -11,7 +11,7 @@ module ExceptionHandler
     end
 
     rescue_from ActiveRecord::RecordNotUnique do |e|
-      json_response({message: "This record already exists" }, :unprocessable_entity)
+      json_response({ message: "This record already exists" }, :unprocessable_entity)
     end
   end
 end

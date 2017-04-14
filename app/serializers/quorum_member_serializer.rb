@@ -1,5 +1,4 @@
-class QuorumMemberSerializer < ActiveModel::Serializer
-  attributes :id, :first_name, :last_name
+class QuorumMemberSerializer < QuorumMemberBaseSerializer
   has_one :user
   has_one :household
   has_one :quorum

@@ -10,6 +10,7 @@ end
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'kaminari'
 gem 'knock'
 gem 'ruby-enum'
 
