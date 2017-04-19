@@ -22,7 +22,7 @@ class QuorumMembersController < ApplicationController
     valid_params = params.permit :user_id, :first_name, :last_name, :quorum_id, :household_id
     quorum_member = QuorumMember.find(params[:id])
 
-    if quorum_member.user_id && valid_params[:user_id] && quorum_member.user_id != valid_params[:user_id]
+    if quorum_member.user_id && valid_params[:user_id] && quorum_member.user_id != valid_params[:user_id].to_i
       error_response('This member is already linked to a different user', :bad_request)
     else
       quorum_member.update!(valid_params)
