@@ -1,0 +1,14 @@
+#content_wrapper
+  #active_admin_content
+    #login
+      %h2 Home Teaching Admin Login
+      = form_tag sessions_path, method: :post do
+        %fieldset.inputs
+          %ol
+            %li.string.input
+              = label_tag :email, 'Email:', class: :label
+              = text_field_tag :email
+            %li.string.input
+              = label_tag :password, 'Password:', class: :label
+              = password_field_tag :password
+            = submit_tag 'Login'

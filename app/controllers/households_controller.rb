@@ -1,2 +1,2 @@
-class HouseholdsController < ApplicationController
+class HouseholdsController < ApiController
 end

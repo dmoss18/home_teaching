@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  root to: redirect('sign_in')
+
+  get 'sign_in', to: 'sessions#new', as: 'new_session'
+  post 'sign_in', to: 'sessions#create', as: 'sessions'
+  delete 'sign_out', to: 'sessions#destroy'
+
+  ActiveAdmin.routes(self)
   post 'user_token' => 'user_token#create'
   resources :households
   resources :quorums do

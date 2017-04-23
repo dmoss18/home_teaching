@@ -1,2 +1,2 @@
-class QuorumsController < ApplicationController
+class QuorumsController < ApiController
 end

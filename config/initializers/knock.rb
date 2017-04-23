@@ -9,6 +9,17 @@ Knock.setup do |config|
   ## Default:
   config.token_lifetime = nil
 
+  Knock::Authenticable.module_eval do
+    def token
+      params[:token] || token_from_cookies || token_from_request_headers
+    end
+
+    def token_from_cookies
+      return nil unless request.cookies
+      request.cookies['remember_token']
+    end
+  end
+
 
   ## Audience claim
   ## --------------

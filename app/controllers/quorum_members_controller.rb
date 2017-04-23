@@ -1,4 +1,4 @@
-class QuorumMembersController < ApplicationController
+class QuorumMembersController < ApiController
   def index
     valid_params = params.permit :quorum_id
     quorum_id = Quorum.first.id # Temporary while we only have 1 ward

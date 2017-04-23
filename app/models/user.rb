@@ -9,4 +9,8 @@ class User < ApplicationRecord
   attr_accessor :jwt
 
   has_one :quorum_member
+
+  def to_token_payload
+    { sub: self.id }
+  end
 end
