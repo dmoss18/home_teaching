@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409183819) do
+ActiveRecord::Schema.define(version: 20170623033441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,8 +69,9 @@ ActiveRecord::Schema.define(version: 20170409183819) do
     t.text     "message"
     t.string   "status"
     t.string   "household_name"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.date     "period",         default: '2017-06-22', null: false
     t.index ["assignment_id"], name: "index_reports_on_assignment_id", using: :btree
   end
 

@@ -12,6 +12,14 @@ ActiveAdmin.register Report do
 #   permitted
 # end
 
+  scope :this_month, default: true
+  scope :previous_month
+  scope :all
+
+  filter :period
+  filter :status, as: :select, collection: proc { Report::Status.values }
+  filter :household_name
+
   index do
     id_column
     column :household_name
@@ -21,8 +29,9 @@ ActiveAdmin.register Report do
       qm = report.assignment.quorum_member
       link_to([qm.first_name, qm.last_name].join(' '), admin_quorum_member_path(qm))
     end
-    column :created_at
-    column :updated_at
+    column :period do |report|
+      report.period.strftime('%B %Y')
+    end
     actions
   end
 
