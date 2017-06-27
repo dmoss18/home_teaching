@@ -13,4 +13,16 @@ class QuorumMember < ApplicationRecord
     define :BISHOPRIC, 'bishopric'
     define :MEMBER, 'member'
   end
+
+  def presidency?
+    role == Roles::PRESIDENCY
+  end
+
+  def bishopric?
+    role == Roles::BISHOPRIC
+  end
+
+  def authority?
+    presidency? || bishopric?
+  end
 end

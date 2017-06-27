@@ -5,7 +5,7 @@ class QuorumMembersController < ApiController
     paginate QuorumMember.where(quorum_id: quorum_id).order(:last_name)
   end
 
-  def search
+  def search # TODO: Use a better search framework (ransack?)
     name = params.require(:name)
     quorum_id = Quorum.first.id # Temporary while we only have 1 ward
     name = QuorumMember.sanitize("#{name}%")
