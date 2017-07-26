@@ -1,8 +1,7 @@
 class QuorumMembersController < ApiController
   def index
     valid_params = params.permit :quorum_id
-    quorum_id = Quorum.first.id # Temporary while we only have 1 ward
-    paginate QuorumMember.where(quorum_id: quorum_id).order(:last_name)
+    paginate QuorumMember.where(quorum_id: valid_params[:quorum_id]).order(:last_name)
   end
 
   def search # TODO: Use a better search framework (ransack?)
