@@ -5,9 +5,9 @@ class QuorumMembersController < ApiController
   end
 
   def search # TODO: Use a better search framework (ransack?)
-    name = params.require(:name)
-    quorum_id = Quorum.first.id # Temporary while we only have 1 ward
-    name = QuorumMember.sanitize("#{name}%")
+    valid_params = params.permit :quorum_id, :name
+    quorum_id = valid_params[:quorum_id]
+    name = QuorumMember.sanitize("#{valid_params[:name]}%")
     query = [
       "first_name like #{name}",
       "last_name like #{name}"
