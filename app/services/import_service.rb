@@ -17,7 +17,7 @@ class ImportService
       CSV.foreach(file.path, headers: true) do |row|
         quorum_member = import_quorum_member(row['Home Teacher'], quorum)
         companion = import_quorum_member(row['Companion'], quorum)
-        ['Family 1', 'Family 2', 'Family 3'].each do |column|
+        ['Family 1', 'Family 2', 'Family 3', 'Family 4'].each do |column|
           family_name = row[column]
           next unless family_name.present?
           household = import_household(family_name, quorum.ward)
