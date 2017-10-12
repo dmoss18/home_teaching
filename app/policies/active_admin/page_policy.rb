@@ -6,6 +6,14 @@ module ActiveAdmin
       end
     end
 
+    def assignments?
+      true
+    end
+
+    def households?
+      true
+    end
+
     def index?
       true
     end
